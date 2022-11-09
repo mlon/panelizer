@@ -2,6 +2,7 @@ import os
 import os.path
 from typing import NamedTuple
 
+import typer
 from lxml import etree
 from lxml.etree import Element, ElementTree, QName, SubElement, _Element
 
@@ -276,7 +277,7 @@ def add_symbols(parent: _Element) -> None:
                 symbol.append(element)
 
 
-def generate_svg(hp: float, name: str, filename: str) -> None:
+def main(filename: str, hp: float = typer.Option(...), name: str = "Untitled Module") -> None:
     height = 128.5
     width = HP_TO_MM[hp]
 
@@ -330,3 +331,6 @@ def generate_svg(hp: float, name: str, filename: str) -> None:
 
     with open(filename, "wb") as f:
         f.write(etree.tostring(ElementTree(root), pretty_print=True))
+
+if __name__ == '__main__':
+    typer.run(main)

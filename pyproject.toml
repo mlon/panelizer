@@ -2,19 +2,14 @@
 name = "panelizer"
 requires-python = ">=3.10"
 classifiers = ["License :: OSI Approved :: MIT License"]
-dependencies = [
-    "cairocffi",
-    "CairoSVG",
-    "cssutils",
-    "gingerbread",
-    "lxml",
-    "lxml-stubs",
-    "svgelements",
+description = "Eurorack panel utilities for mlon"
+dynamic = [
+    "version", 
+    "dependencies",
 ]
-dynamic = ["version", "description]
 
-[project.scripts]
-panelizer = "panelizer:__main__.main"
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
 
 [tool.mypy]
 color_output = true

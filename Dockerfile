@@ -1,5 +1,4 @@
-ARG VARIANT="3.10-bullseye"
-FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
+FROM python:3.10
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
@@ -15,3 +14,16 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     libvips42
 
 RUN fc-cache -fv
+
+WORKDIR /workspace
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt 
+
+COPY symbols symbols
+COPY panelizer panelizer
+COPY pyproject.toml .
+RUN pip install .
+
+WORKDIR /data
+ENTRYPOINT ["python3", "-m"]

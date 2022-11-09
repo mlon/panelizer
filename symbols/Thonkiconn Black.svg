@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="9.5100002mm"
-   height="9.5100002mm"
-   viewBox="0 0 9.5100001 9.5099997"
+   width="10.5mm"
+   height="10.5mm"
+   viewBox="0 0 10.5 10.499999"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
@@ -24,15 +24,15 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="16.374354"
-     inkscape:cx="13.099753"
-     inkscape:cy="10.71798"
+     inkscape:zoom="12.168436"
+     inkscape:cx="18.695911"
+     inkscape:cy="17.381034"
      inkscape:window-width="1792"
      inkscape:window-height="1067"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer2" />
   <defs
      id="defs2">
     <rect
@@ -64,12 +64,25 @@
      inkscape:label="Cuts"
      inkscape:highlight-color="#e49c0c">
     <circle
-       style="fill:none;fill-opacity:1;stroke:#4d4d4d;stroke-width:1.625;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       style="fill:none;fill-opacity:1;stroke:#888888;stroke-width:1.625;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        id="circle1772"
-       cx="4.7550001"
-       cy="4.7550001"
+       cx="5.25"
+       cy="5.25"
        inkscape:label="Hole"
        r="3.9375" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="g152"
+     inkscape:label="Relief"
+     inkscape:highlight-color="#e49c0c">
+    <circle
+       style="display:inline;fill:none;fill-opacity:1;stroke:#444444;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="circle150"
+       cx="5.25"
+       cy="5.25"
+       inkscape:label="Hole"
+       r="5" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -78,8 +91,8 @@
     <circle
        style="fill:none;stroke:#3c939c;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"
        id="path3858"
-       cx="4.7550001"
-       cy="4.7549996"
+       cx="5.25"
+       cy="5.2499995"
        r="0.5"
        inkscape:label="Center" />
   </g>
@@ -91,32 +104,24 @@
     <ellipse
        style="display:inline;fill:#000000;fill-opacity:1;stroke:#303030;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
        id="path3080"
-       cx="4.7550001"
-       cy="4.7550001"
+       cx="5.25"
+       cy="5.25"
        rx="4.7049999"
        ry="4.7049994"
        inkscape:label="Black" />
-    <ellipse
-       style="display:none;fill:none;fill-opacity:1;stroke:#888888;stroke-width:1.5;stroke-dasharray:none;stroke-opacity:1"
-       id="ellipse140"
-       cx="4.7550001"
-       cy="4.7549996"
-       rx="4.0050001"
-       ry="4.0049996"
-       inkscape:label="Silver" />
     <path
-       style="display:inline;fill:none;fill-opacity:1;stroke:#262626;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1"
-       d="M 0,4.7549995 H 2"
+       style="display:inline;fill:none;fill-opacity:1;stroke:#303030;stroke-width:0.999995;stroke-dasharray:none;stroke-opacity:1"
+       d="M 0.55871302,5.2499994 H 2.4949999"
        id="path6124" />
     <path
-       style="display:inline;fill:none;fill-opacity:1;stroke:#262626;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1"
-       d="M 7.5100001,4.7549994 H 9.5100002"
+       style="display:inline;fill:none;fill-opacity:1;stroke:#303030;stroke-width:0.999997;stroke-dasharray:none;stroke-opacity:1"
+       d="M 8.005,5.2499993 H 9.9311577"
        id="path6124-1" />
     <ellipse
        style="display:inline;fill:#000000;fill-opacity:1;stroke:#525252;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
        id="path966"
-       cx="4.7550001"
-       cy="4.7549996"
+       cx="5.25"
+       cy="5.2499995"
        rx="3.0500002"
        ry="3.05" />
   </g>

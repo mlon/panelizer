@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="10.5mm"
-   height="10.5mm"
-   viewBox="0 0 10.5 10.499999"
+   width="8mm"
+   height="38mm"
+   viewBox="0 0 7.9999999 37.999998"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
-   sodipodi:docname="Thonkiconn Silver.svg"
+   sodipodi:docname="Slider 20mm.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,15 +24,15 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="12.168436"
-     inkscape:cx="18.695911"
-     inkscape:cy="17.381034"
+     inkscape:zoom="9.7801666"
+     inkscape:cx="-5.1635112"
+     inkscape:cy="65.796425"
      inkscape:window-width="1792"
      inkscape:window-height="1067"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer2" />
+     inkscape:current-layer="layer3" />
   <defs
      id="defs2">
     <rect
@@ -63,36 +63,42 @@
      id="layer2"
      inkscape:label="Cuts"
      inkscape:highlight-color="#e49c0c">
-    <circle
-       style="fill:none;fill-opacity:1;stroke:#888888;stroke-width:1.625;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-       id="circle1772"
-       cx="5.25"
-       cy="5.25"
-       inkscape:label="Hole"
-       r="3.9375" />
+    <rect
+       style="fill:none;stroke:none;stroke-width:0.499999"
+       id="rect338"
+       width="2.8"
+       height="37"
+       x="2.5999999"
+       y="0.49999949"
+       ry="0.27407408"
+       inkscape:label="Hole" />
   </g>
   <g
      inkscape:groupmode="layer"
-     id="g152"
+     id="g253"
      inkscape:label="Relief"
      inkscape:highlight-color="#e49c0c">
-    <circle
-       style="display:inline;fill:none;fill-opacity:1;stroke:#444444;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-       id="circle150"
-       cx="5.25"
-       cy="5.25"
-       inkscape:label="Hole"
-       r="5" />
+    <rect
+       style="fill:none;stroke:#444444;stroke-width:0.499999;stroke-opacity:1"
+       id="rect3231"
+       width="3.3"
+       height="37.5"
+       x="2.3499999"
+       y="0.24999949"
+       ry="0"
+       inkscape:label="Relief" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="Alignment">
+     inkscape:label="Alignment"
+     transform="translate(1.9211492,4.9453194)"
+     style="display:inline">
     <circle
-       style="fill:none;stroke:#3c939c;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;fill:none;stroke:#3c939c;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"
        id="path3858"
-       cx="5.25"
-       cy="5.2499995"
+       cx="2.0788507"
+       cy="14.054681"
        r="0.5"
        inkscape:label="Center" />
   </g>
@@ -101,28 +107,21 @@
      inkscape:groupmode="layer"
      id="layer1"
      style="display:inline">
-    <ellipse
-       style="display:inline;fill:#888888;fill-opacity:1;stroke:#303030;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-       id="path3080"
-       cx="5.25"
-       cy="5.25"
-       rx="4.7049999"
-       ry="4.7049994"
-       inkscape:label="Black" />
-    <path
-       style="display:inline;fill:none;fill-opacity:1;stroke:#303030;stroke-width:0.999995;stroke-dasharray:none;stroke-opacity:1"
-       d="M 0.55871302,5.2499994 H 2.4949999"
-       id="path6124" />
-    <path
-       style="display:inline;fill:none;fill-opacity:1;stroke:#303030;stroke-width:0.999997;stroke-dasharray:none;stroke-opacity:1"
-       d="M 8.005,5.2499993 H 9.9311577"
-       id="path6124-1" />
-    <ellipse
-       style="display:inline;fill:#000000;fill-opacity:1;stroke:#525252;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
-       id="path966"
-       cx="5.25"
-       cy="5.2499995"
-       rx="3.0500002"
-       ry="3.05" />
+    <rect
+       style="fill:#fcf9f0;fill-opacity:1;stroke:#000000;stroke-width:0.0999999;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3286"
+       width="7.3000002"
+       height="13.9"
+       x="0.3499999"
+       y="12.05"
+       ry="1.5" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0999999;stroke-dasharray:none;stroke-opacity:1"
+       id="rect11610"
+       width="7.9000001"
+       height="1.5"
+       x="0.049999952"
+       y="18.25"
+       ry="0.49010503" />
   </g>
 </svg>

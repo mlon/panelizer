@@ -3,6 +3,7 @@ Generates a KiCad PCB from an SVG file
 """
 import html
 import math
+import pathlib
 from copy import deepcopy
 from io import BytesIO
 from typing import Optional
@@ -12,6 +13,7 @@ import cairosvg.colors
 import cssutils
 import gingerbread._sexpr as s
 import gingerbread.pcb
+import typer
 from gingerbread._geometry import bezier_to_points
 from gingerbread.trace import trace
 from lxml import etree
@@ -19,6 +21,7 @@ from lxml.etree import QName
 from svgelements import SVG, Circle, CubicBezier, Line, Path, Rect
 
 PADDING = 0.5
+
 
 def gr_circle(
     *,
@@ -111,7 +114,7 @@ def svg_tag(node: etree._Element, tag: str) -> str:
 
 def inline_symbols(root: etree._Element) -> None:
     nsmap = root.nsmap
-    nsmap.pop(None)
+    nsmap["svg"] = nsmap.pop(None)
 
     symbol: etree._Element
     symbols: dict[str, etree._Element] = {}
@@ -325,16 +328,16 @@ def add_copper_layers(pcb: PCB, svg: etree._ElementTree) -> None:
     relief_root = filter_node(svg.getroot(), "Relief")
 
     nsmap = svg.getroot().nsmap
-    nsmap.pop(None)
+    nsmap["svg"] = nsmap.pop(None)
 
-    for node in holes_root.xpath('.//svg:circle', namespaces=nsmap):
-        node.set('r', str(float(node.get('r')) + PADDING))
+    for node in holes_root.xpath(".//svg:circle", namespaces=nsmap):
+        node.set("r", str(float(node.get("r")) + PADDING))
 
-    for node in holes_root.xpath('.//svg:rect', namespaces=nsmap):
-        node.set('x', str(float(node.get('x')) - PADDING))
-        node.set('y', str(float(node.get('y')) - PADDING))
-        node.set('width', str(float(node.get('width')) + 2 * PADDING))
-        node.set('height', str(float(node.get('height')) + 2 * PADDING))
+    for node in holes_root.xpath(".//svg:rect", namespaces=nsmap):
+        node.set("x", str(float(node.get("x")) - PADDING))
+        node.set("y", str(float(node.get("y")) - PADDING))
+        node.set("width", str(float(node.get("width")) + 2 * PADDING))
+        node.set("height", str(float(node.get("height")) + 2 * PADDING))
 
     background = etree.Element(
         "rect",
@@ -387,17 +390,21 @@ def add_alignment_footprints(pcb: PCB, svg: etree._ElementTree) -> None:
         )
 
 
-def convert(input_filename: str, title: str, output_filename: str) -> None:
-    svg = etree.parse(input_filename)
+def main(input: pathlib.Path, output: pathlib.Path) -> None:
+    svg = etree.parse(input)
     inline_symbols(svg.getroot())
 
-    panel = PCB(title=title, company="mlon")
+    panel = PCB(title=input, company="mlon")
 
     add_cuts_layer(panel, svg)
     add_front_layer(panel, svg)
     add_copper_layers(panel, svg)
-    panel.write(output_filename)
+    panel.write(output)
 
-    alignment = PCB(title=f"{title} - Alignement", company="mlon")
+    alignment = PCB(title=f"{input} - Alignement", company="mlon")
     add_alignment_footprints(alignment, svg)
-    alignment.write(f"alignment-{output_filename}")
+    alignment.write(output.parent / f"alignment_{output.name}")
+
+
+if __name__ == "__main__":
+    typer.run(main)
