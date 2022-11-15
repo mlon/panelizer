@@ -219,16 +219,19 @@ def add_cuts_layer(pcb: PCB, svg: etree._ElementTree) -> None:
         fill=False,
     )
 
-    svg = SVG.parse(BytesIO(etree.tostring(etree.ElementTree(filtered_root))), ppi=25.4)
+    svg = SVG.parse(
+        BytesIO(etree.tostring(etree.ElementTree(filtered_root))),
+        ppi=25.4,
+    )
 
     shape: Circle | Path | Rect
     for shape in svg.select(lambda el: isinstance(el, (Circle, Path, Rect))):
         if isinstance(shape, Rect) and shape.ry is None:
             pcb.add_rect(
-                x=shape.x,
-                y=shape.y,
-                w=shape.width,
-                h=shape.height,
+                x=round(shape.x, 5),
+                y=round(shape.y, 5),
+                w=round(shape.width, 5),
+                h=round(shape.height, 5),
                 layer="Edge.Cuts",
                 width=0.15,
                 fill=False,
@@ -236,40 +239,43 @@ def add_cuts_layer(pcb: PCB, svg: etree._ElementTree) -> None:
         elif isinstance(shape, Rect) and math.isclose(
             shape.ry, shape.height / 2, abs_tol=1e-6
         ):
-            if shape.height <= 6.35:
+            if round(shape.height, 5) <= 6.35:
                 if shape.stroke.value is not None:
                     pcb.add_plated_slotted_hole(
-                        shape.x + shape.width / 2,
-                        shape.y + shape.height / 2,
-                        shape.stroke_width,
-                        shape.width - shape.stroke_width,
-                        shape.height - shape.stroke_width,
+                        round(shape.x + shape.width / 2, 5),
+                        round(shape.y + shape.height / 2, 5),
+                        round(shape.stroke_width, 5),
+                        round(shape.width - shape.stroke_width, 5),
+                        round(shape.height - shape.stroke_width, 5),
                     )
                 else:
                     pcb.add_slotted_hole(
-                        shape.x + shape.width / 2,
-                        shape.y + shape.height / 2,
-                        shape.width,
-                        shape.height,
+                        round(shape.x + shape.width / 2, 5),
+                        round(shape.y + shape.height / 2, 5),
+                        round(shape.width, 5),
+                        round(shape.height, 5),
                     )
 
         elif isinstance(shape, Circle):
-            diameter = 2 * shape.rx - (shape.stroke_width or 0)
+            diameter = round(2 * shape.rx - (shape.stroke_width or 0), 5)
             if diameter > 6.35:
                 if shape.stroke.value is not None:
                     for l in ["F.Cu", "B.Cu", "F.Mask", "B.Mask"]:
                         pcb.add_circle(
-                            x=shape.cx,
-                            y=shape.cy,
-                            d=diameter + shape.stroke_width,
+                            x=round(shape.cx, 5),
+                            y=round(shape.cy, 5),
+                            d=diameter + round(shape.stroke_width, 5),
                             layer=l,
-                            width=shape.stroke_width,
+                            width=round(shape.stroke_width, 5),
                         )
                 pcb.add_circle(x=shape.cx, y=shape.cy, d=diameter, layer="Edge.Cuts")
             else:
                 if shape.stroke.value is not None:
                     pcb.add_plated_drill(
-                        x=shape.cx, y=shape.cy, d=diameter, pad_size=shape.stroke_width
+                        x=round(shape.cx, 5),
+                        y=round(shape.cy, 5),
+                        d=diameter,
+                        pad_size=round(shape.stroke_width, 5),
                     )
                 else:
                     pcb.add_drill(x=shape.cx, y=shape.cy, d=diameter)
@@ -327,18 +333,6 @@ def add_copper_layers(pcb: PCB, svg: etree._ElementTree) -> None:
     holes_root = filter_node(svg.getroot(), "Cuts", fill=True)
     relief_root = filter_node(svg.getroot(), "Relief")
 
-    nsmap = svg.getroot().nsmap
-    nsmap["svg"] = nsmap.pop(None)
-
-    for node in holes_root.xpath(".//svg:circle", namespaces=nsmap):
-        node.set("r", str(float(node.get("r")) + PADDING))
-
-    for node in holes_root.xpath(".//svg:rect", namespaces=nsmap):
-        node.set("x", str(float(node.get("x")) - PADDING))
-        node.set("y", str(float(node.get("y")) - PADDING))
-        node.set("width", str(float(node.get("width")) + 2 * PADDING))
-        node.set("height", str(float(node.get("height")) + 2 * PADDING))
-
     background = etree.Element(
         "rect",
         attrib={
@@ -390,6 +384,7 @@ def add_alignment_footprints(pcb: PCB, svg: etree._ElementTree) -> None:
         )
 
 
+# pylint: disable-next=redefined-builtin
 def main(input: pathlib.Path, output: pathlib.Path) -> None:
     svg = etree.parse(input)
     inline_symbols(svg.getroot())

@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="10.435mm"
-   height="10.435mm"
-   viewBox="0 0 10.435 10.435"
+   width="10.51mm"
+   height="10.51mm"
+   viewBox="0 0 10.51 10.51"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
@@ -25,14 +25,14 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="15.375612"
-     inkscape:cx="23.511259"
+     inkscape:cx="17.592796"
      inkscape:cy="17.267605"
      inkscape:window-width="1792"
      inkscape:window-height="1067"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g149" />
+     inkscape:current-layer="layer1-5" />
   <defs
      id="defs2">
     <rect
@@ -60,62 +60,87 @@
   </defs>
   <g
      inkscape:groupmode="layer"
-     id="layer2"
+     id="layer2-4"
      inkscape:label="Cuts"
-     inkscape:highlight-color="#e49c0c">
+     inkscape:highlight-color="#e49c0c"
+     transform="translate(-1.728031,-1.8312785)">
     <circle
-       style="fill:none;stroke:#888888;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-       id="path3321"
-       cx="5.2174993"
-       cy="5.2174993"
-       r="4.2174997"
-       inkscape:label="Hole" />
+       style="fill:none;stroke:#888888;stroke-width:1.055;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="path3321-8"
+       cx="6.9830313"
+       cy="7.0862784"
+       inkscape:label="Hole"
+       r="4.2275" />
   </g>
   <g
      inkscape:groupmode="layer"
-     id="g149"
+     id="layer5"
      inkscape:label="Relief"
-     inkscape:highlight-color="#e49c0c">
+     transform="translate(-1.728031,-1.8312785)">
     <circle
-       style="fill:none;stroke:#444444;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-       id="circle147"
-       cx="5.2174997"
-       cy="5.2174997"
-       r="4.9674997"
+       style="fill:none;stroke:#222222;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="circle905"
+       cx="6.9830313"
+       cy="7.0862784"
+       r="5.0050001"
        inkscape:label="Hole" />
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer3"
+     id="layer3-1"
      inkscape:label="Alignment"
-     transform="translate(2.0911133,2.9687207)"
+     transform="translate(3.0719691,2.9687216)"
      style="display:inline">
     <circle
        style="fill:none;stroke:#3c939c;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"
-       id="path3858"
-       cx="3.1263859"
-       cy="2.2487786"
+       id="path3858-8"
+       cx="2.1830308"
+       cy="2.2862787"
        r="0.5"
        inkscape:label="Center" />
   </g>
   <g
      inkscape:label="Decor"
      inkscape:groupmode="layer"
-     id="layer1"
-     style="display:inline">
-    <circle
-       style="fill:#fcf9f0;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-       id="path2542-8"
-       cx="5.2172966"
-       cy="5.2172966"
-       r="3.8"
-       inkscape:label="Outline" />
-    <circle
-       style="fill:#000000;stroke:#000000;stroke-width:0.1"
-       id="path359"
-       cx="5.2172966"
-       cy="2.6464632"
-       r="0.69999999"
-       inkscape:label="Dot" />
+     id="layer1-5"
+     style="display:inline"
+     transform="translate(-1.728031,-1.8312785)">
+    <g
+       id="g3753"
+       inkscape:label="Bananut M7"
+       transform="translate(0.58310054,0.68627869)">
+      <circle
+         style="fill:none;stroke:#010101;stroke-width:1.055;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="circle3561"
+         cx="6.4000001"
+         cy="6.4000001"
+         inkscape:label="Bananut Body"
+         r="4.2275" />
+      <path
+         id="rect3638"
+         style="display:inline;fill:#ffffff;fill-opacity:0.133333;stroke:none;stroke-width:1.055;stroke-dasharray:none;stroke-opacity:1"
+         d="M 1.7042887,5.6497843 C 1.6673226,5.881338 1.6469094,6.1185841 1.6448608,6.3598185 v 0.081649 c 0.00205,0.2408227 0.022573,0.4773374 0.059428,0.7084839 h 1.0702189 c -0.049438,-0.2419139 -0.075448,-0.492355 -0.075448,-0.7493083 0,-0.2573046 0.025877,-0.508584 0.075448,-0.7508586 z m 8.3199053,0 c 0.04952,0.2422746 0.07545,0.493554 0.07545,0.7508586 0,0.2569533 -0.02606,0.5073944 -0.07545,0.7493083 h 1.070736 c 0.03891,-0.2442731 0.05943,-0.4943104 0.05943,-0.7493083 0,-0.2553487 -0.02041,-0.5062328 -0.05943,-0.7508586 z"
+         inkscape:label="Bananut Slot" />
+    </g>
+    <g
+       id="g4369"
+       inkscape:label="Knob"
+       style="display:inline"
+       transform="translate(1.7655307,1.8687786)">
+      <circle
+         style="fill:#fcf9f0;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="path2542-8"
+         cx="5.2172966"
+         cy="5.2172966"
+         r="3.8"
+         inkscape:label="Outline" />
+      <circle
+         style="fill:#000000;stroke:#000000;stroke-width:0.1"
+         id="path359"
+         cx="5.2172966"
+         cy="2.6464632"
+         r="0.69999999"
+         inkscape:label="Dot" />
+    </g>
   </g>
 </svg>

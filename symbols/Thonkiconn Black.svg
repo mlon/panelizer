@@ -24,9 +24,9 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="12.168436"
-     inkscape:cx="18.695911"
-     inkscape:cy="17.381034"
+     inkscape:zoom="12.784897"
+     inkscape:cx="-0.82128155"
+     inkscape:cy="17.168695"
      inkscape:window-width="1792"
      inkscape:window-height="1067"
      inkscape:window-x="0"
@@ -64,20 +64,21 @@
      inkscape:label="Cuts"
      inkscape:highlight-color="#e49c0c">
     <circle
-       style="fill:none;fill-opacity:1;stroke:#888888;stroke-width:1.625;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       style="display:inline;fill:none;fill-opacity:1;stroke:#888888;stroke-width:1.575;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        id="circle1772"
        cx="5.25"
        cy="5.25"
        inkscape:label="Hole"
-       r="3.9375" />
+       r="3.9625" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="g152"
      inkscape:label="Relief"
-     inkscape:highlight-color="#e49c0c">
+     inkscape:highlight-color="#e49c0c"
+     style="display:inline">
     <circle
-       style="display:inline;fill:none;fill-opacity:1;stroke:#444444;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       style="display:inline;fill:none;fill-opacity:1;stroke:#222222;stroke-width:0.5;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        id="circle150"
        cx="5.25"
        cy="5.25"
@@ -87,9 +88,10 @@
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="Alignment">
+     inkscape:label="Alignment"
+     style="display:inline">
     <circle
-       style="fill:none;stroke:#3c939c;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"
+       style="display:none;fill:none;stroke:#3c939c;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"
        id="path3858"
        cx="5.25"
        cy="5.2499995"
@@ -101,28 +103,30 @@
      inkscape:groupmode="layer"
      id="layer1"
      style="display:inline">
+    <g
+       id="g12288"
+       inkscape:label="Bananut"
+       style="display:inline">
+      <circle
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.575;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="circle12275"
+         cx="5.25"
+         cy="5.25"
+         inkscape:label="Bananut Body"
+         r="3.9624999" />
+      <path
+         id="rect11493"
+         style="display:inline;fill:#ffffff;fill-opacity:0.164706;stroke:none;stroke-width:1.25;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+         d="m 0.55965576,4.4999837 c -0.0391525,0.2444805 -0.0594279,0.4946956 -0.0594279,0.7498251 0,0.2551294 0.0202754,0.5058613 0.0594279,0.7503418 H 2.1621419 C 2.1046475,5.7598913 2.074292,5.5084962 2.074292,5.2498088 c 0,-0.2586875 0.030356,-0.5095658 0.08785,-0.7498251 z m 7.77781984,0 c 0.057494,0.2402593 0.088367,0.4911376 0.088367,0.7498251 0,0.2586874 -0.030872,0.5100825 -0.088367,0.7503418 h 1.6030029 c 0.039153,-0.2444805 0.059428,-0.4952124 0.059428,-0.7503418 0,-0.2551295 -0.020275,-0.5053446 -0.059428,-0.7498251 z"
+         inkscape:label="Bananut Slot" />
+    </g>
     <ellipse
-       style="display:inline;fill:#000000;fill-opacity:1;stroke:#303030;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-       id="path3080"
-       cx="5.25"
-       cy="5.25"
-       rx="4.7049999"
-       ry="4.7049994"
-       inkscape:label="Black" />
-    <path
-       style="display:inline;fill:none;fill-opacity:1;stroke:#303030;stroke-width:0.999995;stroke-dasharray:none;stroke-opacity:1"
-       d="M 0.55871302,5.2499994 H 2.4949999"
-       id="path6124" />
-    <path
-       style="display:inline;fill:none;fill-opacity:1;stroke:#303030;stroke-width:0.999997;stroke-dasharray:none;stroke-opacity:1"
-       d="M 8.005,5.2499993 H 9.9311577"
-       id="path6124-1" />
-    <ellipse
-       style="display:inline;fill:#000000;fill-opacity:1;stroke:#525252;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;fill:#000000;fill-opacity:1;stroke:#888888;stroke-width:1.25;stroke-dasharray:none;stroke-opacity:1"
        id="path966"
        cx="5.25"
-       cy="5.2499995"
-       rx="3.0500002"
-       ry="3.05" />
+       cy="5.25"
+       rx="2.375"
+       ry="2.3749998"
+       inkscape:label="Jack" />
   </g>
 </svg>

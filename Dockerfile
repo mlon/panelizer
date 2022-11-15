@@ -23,7 +23,7 @@ RUN pip install -r requirements.txt
 COPY symbols symbols
 COPY panelizer panelizer
 COPY pyproject.toml .
-RUN pip install .
+RUN pip install -e .
 
 WORKDIR /data
 ENTRYPOINT ["python3", "-m"]

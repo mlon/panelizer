@@ -36,11 +36,15 @@ def inkscape(tag: str) -> QName:
     return QName(NS.inkscape, tag)
 
 
+def xlink(tag: str) -> QName:
+    return QName(NS.xlink, tag)
+
+
 def sodipodi(tag: str) -> QName:
     return QName(NS.sodipodi, tag)
 
 
-LOCKED = {inkscape("insensitive"): "1"}
+LOCKED = {sodipodi("insensitive"): "true"}
 
 
 def add_inkscape_helpers(parent: _Element, width: float, height: float) -> None:
@@ -63,7 +67,7 @@ def add_inkscape_helpers(parent: _Element, width: float, height: float) -> None:
         namedview,
         sodipodi("guide"),
         attrib={
-            "position": "0,13.45",
+            "position": "0,9.64",
             "orientation": "0,1",
             inkscape("color"): "#aaaaaa",
             inkscape("locked"): "true",
@@ -74,7 +78,7 @@ def add_inkscape_helpers(parent: _Element, width: float, height: float) -> None:
         namedview,
         sodipodi("guide"),
         attrib={
-            "position": "0,115.05",
+            "position": "0,118.86",
             "orientation": "0,1",
             inkscape("color"): "#aaaaaa",
             inkscape("locked"): "true",
@@ -88,11 +92,11 @@ def add_inkscape_helpers(parent: _Element, width: float, height: float) -> None:
             "type": "xygrid",
             "units": "mm",
             "spacingx": "1.27",
-            "spacingy": "2.54",
+            "spacingy": "1.27",
             "originx": str(width / 2),
             "originy": str(height / 2),
             "position": "0,118.25",
-            "empspacing": "2",
+            "empspacing": "4",
             "color": "#aaaaaa",
             "opacity": "0.1",
             "empcolor": "#aaaaaa",
@@ -129,22 +133,14 @@ def add_background(parent: _Element, width: float, height: float) -> None:
     )
 
 
-def add_mounting_hole(
-    cuts: _Element, name: str, cx: float, cy: float, width: float, height: float
-) -> None:
-    pad = 0.5
+def add_mounting_hole(cuts: _Element, name: str, cx: float, cy: float) -> None:
     SubElement(
         cuts,
-        "rect",
+        "use",
         attrib={
-            "x": str(cx - width / 2 - pad / 2),
-            "y": str(cy - height / 2 - pad / 2),
-            "ry": str((height + pad) / 2),
-            "width": str(width + pad),
-            "height": str(height + pad),
-            "stroke-width": str(pad),
-            "stroke": "#888",
-            inkscape("label"): f"{name} Mounting Hole",
+            xlink("href"): "#mounting_hole",
+            inkscape("label"): name,
+            "transform": f"translate({cx - 4.1},{cy-2.6})",
             **LOCKED,
         },
     )
@@ -154,7 +150,6 @@ def add_mounting_holes(
     parent: _Element, panel_width: float, panel_height: float
 ) -> None:
     width = 6.4
-    height = 3.2
 
     if panel_width < 2 * width:
         add_mounting_hole(
@@ -162,38 +157,28 @@ def add_mounting_holes(
             "Top",
             cx=panel_width / 2,
             cy=3,
-            width=panel_width - 2 * (3 - height / 2),
-            height=height,
         )
         add_mounting_hole(
             parent,
             "Bottom",
             cx=panel_width / 2,
             cy=panel_height - 3,
-            width=panel_width - 2 * (3 - height / 2),
-            height=height,
         )
     else:
-        add_mounting_hole(parent, "Top Left", cx=7.5, cy=3, width=width, height=height)
+        add_mounting_hole(parent, "Top Left", cx=7.5, cy=3)
         add_mounting_hole(
             parent,
             "Bottom Right",
             cx=panel_width - 7.5,
             cy=panel_height - 3,
-            width=width,
-            height=height,
         )
     if panel_width >= 7 * width:
-        add_mounting_hole(
-            parent, "Top Right", cx=panel_width - 7.5, cy=3, width=width, height=height
-        )
+        add_mounting_hole(parent, "Top Right", cx=panel_width - 7.5, cy=3)
         add_mounting_hole(
             parent,
             "Bottom Left",
             cx=7.5,
             cy=panel_height - 3,
-            width=width,
-            height=height,
         )
 
 
@@ -241,7 +226,7 @@ def add_relief(parent: _Element, width: float, height: float) -> None:
         attrib={
             "d": f"M 0 {6 + thickness/2} L {width} {6 + thickness/2}",
             "stroke-width": str(thickness),
-            "stroke": "#444",
+            "stroke": "#222",
             inkscape("label"): "Top Line",
             **LOCKED,
         },
@@ -252,7 +237,7 @@ def add_relief(parent: _Element, width: float, height: float) -> None:
         attrib={
             "d": f"M 0 {height - 6 - thickness/2} L {width} {height - 6 - thickness/2}",
             "stroke-width": str(thickness),
-            "stroke": "#444",
+            "stroke": "#222",
             inkscape("label"): "Bottom Line",
             **LOCKED,
         },
@@ -260,7 +245,11 @@ def add_relief(parent: _Element, width: float, height: float) -> None:
 
 
 def add_symbols(parent: _Element) -> None:
-    symbol_dir = os.path.join(os.path.dirname(__file__), "..", "symbols")
+    symbol_dir = os.environ.get(
+        "PANELIZER_SYMBOLS",
+        os.path.join(os.path.dirname(__file__), "..", "symbols"),
+    )
+
     for symbol_file in os.listdir(symbol_dir):
         if not symbol_file.endswith(".svg"):
             continue
@@ -277,7 +266,9 @@ def add_symbols(parent: _Element) -> None:
                 symbol.append(element)
 
 
-def main(filename: str, hp: float = typer.Option(...), name: str = "Untitled Module") -> None:
+def main(
+    filename: str, hp: float = typer.Option(...), name: str = "Untitled Module"
+) -> None:
     height = 128.5
     width = HP_TO_MM[hp]
 
@@ -303,8 +294,13 @@ def main(filename: str, hp: float = typer.Option(...), name: str = "Untitled Mod
 
     add_background(root, width, height)
 
-    cuts = add_layer(root, "Cuts")
-    add_mounting_holes(cuts, width, height)
+    add_layer(root, "Cuts")
+
+    relief = add_layer(root, "Relief")
+    if hp < 4:
+        add_relief(relief, width, height - 5)
+    else:
+        add_relief(relief, width, height)
 
     front = add_layer(root, "Front")
     if hp <= 3:
@@ -321,16 +317,12 @@ def main(filename: str, hp: float = typer.Option(...), name: str = "Untitled Mod
         add_name(front, width / 2, 3.2078741, name)
         add_logo(front, width / 2, height - 3, 4, 4)
 
-    relief = add_layer(root, "Relief")
-    if hp < 4:
-        add_relief(relief, width, height - 5)
-    else:
-        add_relief(relief, width, height)
-
-    add_layer(root, "Components")
+    components = add_layer(root, "Components")
+    add_mounting_holes(components, width, height)
 
     with open(filename, "wb") as f:
         f.write(etree.tostring(ElementTree(root), pretty_print=True))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     typer.run(main)

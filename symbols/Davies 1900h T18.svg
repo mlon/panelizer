@@ -24,15 +24,15 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="16.791451"
-     inkscape:cx="25.221168"
-     inkscape:cy="21.826583"
+     inkscape:zoom="4.7637175"
+     inkscape:cx="-14.799366"
+     inkscape:cy="26.764811"
      inkscape:window-width="1792"
      inkscape:window-height="1067"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer2" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs2">
     <rect
@@ -64,23 +64,23 @@
      inkscape:label="Cuts"
      inkscape:highlight-color="#e49c0c">
     <circle
-       style="fill:none;stroke:#888888;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       style="fill:none;stroke:#888888;stroke-width:1.055;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        id="path3321"
        cx="6.4000001"
        cy="6.4000001"
-       r="4.2174997"
-       inkscape:label="Hole" />
+       inkscape:label="Hole"
+       r="4.2275" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="Relief">
     <circle
-       style="fill:none;stroke:#444444;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       style="fill:none;stroke:#222222;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        id="circle905"
        cx="6.4000001"
        cy="6.4000001"
-       r="4.9674997"
+       r="5.0050001"
        inkscape:label="Hole" />
   </g>
   <g
@@ -102,34 +102,48 @@
      inkscape:groupmode="layer"
      id="layer1"
      style="display:inline">
-    <circle
-       style="fill:#fcf9f0;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-       id="path2542-8"
-       cx="6.4000001"
-       cy="6.4000001"
-       r="6.3499999"
-       inkscape:label="Outline" />
-    <path
-       sodipodi:type="star"
-       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.224813;stroke-dasharray:none;stroke-opacity:1"
-       id="path788"
-       inkscape:flatsided="false"
-       sodipodi:sides="8"
-       sodipodi:cx="21.438744"
-       sodipodi:cy="24.501421"
-       sodipodi:r1="13.454884"
-       sodipodi:r2="11.773024"
-       sodipodi:arg1="0.72097132"
-       sodipodi:arg2="1.1136704"
-       inkscape:rounded="0.5"
-       inkscape:randomized="0"
-       d="m 31.54558,33.383186 c -1.713259,1.949571 -2.581652,0.536928 -4.910566,1.68246 -2.328913,1.145533 -1.740003,2.695646 -4.330014,2.862744 -2.590012,0.167097 -2.205169,-1.445839 -4.661973,-2.282615 -2.456805,-0.836777 -3.136478,0.675741 -5.086049,-1.037518 -1.94957,-1.713259 -0.536927,-2.581652 -1.68246,-4.910565 C 9.7289858,27.368778 8.1788723,27.957689 8.0117747,25.367677 7.8446772,22.777665 9.4576135,23.162508 10.29439,20.705704 11.131167,18.2489 9.6186483,17.569226 11.331907,15.619656 c 1.713259,-1.949571 2.581653,-0.536928 4.910566,-1.68246 2.328913,-1.145533 1.740003,-2.695646 4.330014,-2.862744 2.590012,-0.167097 2.20517,1.445839 4.661974,2.282615 2.456804,0.836777 3.136477,-0.675741 5.086048,1.037518 1.94957,1.713259 0.536927,2.581652 1.68246,4.910565 1.145532,2.328914 2.695646,1.740003 2.862743,4.330015 0.167098,2.590011 -1.445838,2.205169 -2.282615,4.661973 -0.836776,2.456804 0.675742,3.136478 -1.037517,5.086048 z"
-       transform="matrix(-0.0271552,0.44398359,-0.44398359,-0.0271552,17.860402,-2.4531104)"
-       inkscape:label="Top" />
-    <path
-       style="fill:#000000;stroke:#000000;stroke-width:0.75;stroke-dasharray:none;stroke-opacity:1"
-       d="m 6.4000003,1.399999 v 5"
-       id="path2451"
-       inkscape:label="Indicator" />
+    <g
+       id="g3753"
+       inkscape:label="Bananut M7">
+      <circle
+         style="fill:none;stroke:#010101;stroke-width:1.055;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="circle3561"
+         cx="6.4000001"
+         cy="6.4000001"
+         inkscape:label="Bananut Body"
+         r="4.2275" />
+      <path
+         id="rect3638"
+         style="display:inline;fill:#ffffff;fill-opacity:0.133333;stroke:none;stroke-width:1.055;stroke-dasharray:none;stroke-opacity:1"
+         d="M 1.7042887,5.6497843 C 1.6673226,5.881338 1.6469094,6.1185841 1.6448608,6.3598185 v 0.081649 c 0.00205,0.2408227 0.022573,0.4773374 0.059428,0.7084839 h 1.0702189 c -0.049438,-0.2419139 -0.075448,-0.492355 -0.075448,-0.7493083 0,-0.2573046 0.025877,-0.508584 0.075448,-0.7508586 z m 8.3199053,0 c 0.04952,0.2422746 0.07545,0.493554 0.07545,0.7508586 0,0.2569533 -0.02606,0.5073944 -0.07545,0.7493083 h 1.070736 c 0.03891,-0.2442731 0.05943,-0.4943104 0.05943,-0.7493083 0,-0.2553487 -0.02041,-0.5062328 -0.05943,-0.7508586 z"
+         inkscape:label="Bananut Slot" />
+    </g>
+    <g
+       id="g3584"
+       inkscape:label="Knob"
+       style="display:inline">
+      <path
+         sodipodi:type="star"
+         style="display:inline;fill:#fcf9f0;fill-opacity:1;stroke:#000000;stroke-width:0.211887;stroke-dasharray:none;stroke-opacity:1"
+         id="path788"
+         inkscape:flatsided="false"
+         sodipodi:sides="8"
+         sodipodi:cx="21.438744"
+         sodipodi:cy="24.501421"
+         sodipodi:r1="13.454884"
+         sodipodi:r2="11.773024"
+         sodipodi:arg1="0.72097132"
+         sodipodi:arg2="1.1136704"
+         inkscape:rounded="0.5"
+         inkscape:randomized="0"
+         d="m 31.54558,33.383186 c -1.713259,1.949571 -2.581652,0.536928 -4.910566,1.68246 -2.328913,1.145533 -1.740003,2.695646 -4.330014,2.862744 -2.590012,0.167097 -2.205169,-1.445839 -4.661973,-2.282615 -2.456805,-0.836777 -3.136478,0.675741 -5.086049,-1.037518 -1.94957,-1.713259 -0.536927,-2.581652 -1.68246,-4.910565 C 9.7289858,27.368778 8.1788723,27.957689 8.0117747,25.367677 7.8446772,22.777665 9.4576135,23.162508 10.29439,20.705704 11.131167,18.2489 9.6186483,17.569226 11.331907,15.619656 c 1.713259,-1.949571 2.581653,-0.536928 4.910566,-1.68246 2.328913,-1.145533 1.740003,-2.695646 4.330014,-2.862744 2.590012,-0.167097 2.20517,1.445839 4.661974,2.282615 2.456804,0.836777 3.136477,-0.675741 5.086048,1.037518 1.94957,1.713259 0.536927,2.581652 1.68246,4.910565 1.145532,2.328914 2.695646,1.740003 2.862743,4.330015 0.167098,2.590011 -1.445838,2.205169 -2.282615,4.661973 -0.836776,2.456804 0.675742,3.136478 -1.037517,5.086048 z"
+         transform="matrix(-0.0288118,0.47106879,-0.47106879,-0.0288118,18.559543,-2.9931939)"
+         inkscape:label="Top" />
+      <path
+         style="display:inline;fill:#000000;stroke:#000000;stroke-width:0.75;stroke-dasharray:none;stroke-opacity:1"
+         d="M 6.4000003,-1.2033991e-6 V 4.9999988"
+         id="path2451"
+         inkscape:label="Indicator" />
+    </g>
   </g>
 </svg>
