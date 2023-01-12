@@ -307,6 +307,7 @@ def main(
         add_logo(front, width / 2, height - 8, 4, 4)
     elif hp == 4:
         add_logo(front, 4.4, height - 3, 4, 4)
+        add_name(front, 15.45, 3.2078741, name)
     elif hp == 6:
         add_logo(front, 9.9, height - 3, 4, 4)
         add_name(front, 20.6, 3.2078741, name)

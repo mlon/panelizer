@@ -25,7 +25,7 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="12.784897"
-     inkscape:cx="-0.82128155"
+     inkscape:cx="-10.207356"
      inkscape:cy="17.168695"
      inkscape:window-width="1792"
      inkscape:window-height="1067"
@@ -89,7 +89,7 @@
      id="layer3"
      inkscape:label="Alignment">
     <circle
-       style="display:none;fill:none;stroke:#3c939c;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;fill:none;stroke:#3c939c;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"
        id="path3858"
        cx="5.25"
        cy="5.2499995"
