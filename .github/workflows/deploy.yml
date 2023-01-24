@@ -23,6 +23,10 @@ jobs:
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
     - uses: 'google-github-actions/deploy-cloudrun@v1'
+      id: deploy
       with:
         service: 'panelizer'
-        image: gcr.io/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_APPLICATION }}
+        source: ./
+
+    - name: Show Output
+      run: echo ${{ steps.deploy.outputs.url }}
