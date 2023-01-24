@@ -12,11 +12,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+    - name: Anthenticate
+      id: 'auth'
+      uses: 'google-github-actions/auth@v1'
       with:
-        service_account_email: ${{ secrets.GCP_EMAIL }}
-        service_account_key: ${{ secrets.GCP_CREDENTIALS }}
-        export_default_credentials: true
+        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+    - name: Setup GCloud
+      uses: google-github-actions/setup-gcloud@v1
     
     - name: Configure Docker
       run: |
