@@ -3,10 +3,9 @@ version: "3.8"
 services:
   main:
     build: 
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
     volumes:
       - ..:/workspace:cached
-      - /Library/Fonts:/usr/local/share/fonts:ro
     command: sleep infinity
     user: vscode

@@ -3,9 +3,8 @@ Generates a KiCad PCB from an SVG file
 """
 import html
 import math
-import pathlib
 from copy import deepcopy
-from io import BytesIO
+from io import BytesIO, StringIO
 from typing import Optional
 
 import cairosvg
@@ -13,7 +12,6 @@ import cairosvg.colors
 import cssutils
 import gingerbread._sexpr as s
 import gingerbread.pcb
-import typer
 from gingerbread._geometry import bezier_to_points
 from gingerbread.trace import trace
 from lxml import etree
@@ -384,22 +382,17 @@ def add_alignment_footprints(pcb: PCB, svg: etree._ElementTree) -> None:
         )
 
 
-# pylint: disable-next=redefined-builtin
-def main(input: pathlib.Path, output: pathlib.Path) -> None:
-    svg = etree.parse(input)
+def convert(stream: BytesIO, name: str) -> BytesIO:
+    svg = etree.parse(stream)
     inline_symbols(svg.getroot())
 
-    panel = PCB(title=input, company="mlon")
+    panel = PCB(title=name, company="mlon")
 
     add_cuts_layer(panel, svg)
     add_front_layer(panel, svg)
     add_copper_layers(panel, svg)
-    panel.write(output)
+    add_alignment_footprints(panel, svg)
 
-    alignment = PCB(title=f"{input} - Alignement", company="mlon")
-    add_alignment_footprints(alignment, svg)
-    alignment.write(output.parent / f"alignment_{output.name}")
-
-
-if __name__ == "__main__":
-    typer.run(main)
+    buf = StringIO()
+    panel.write(buf)
+    return BytesIO(buf.getvalue().encode("utf-8"))

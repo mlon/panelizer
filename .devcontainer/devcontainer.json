@@ -27,6 +27,8 @@
       },
 
       "extensions": [
+        "eamodio.gitlens",
+        "kamikillerto.vscode-colorize",
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-python.isort"

@@ -1,3 +1,0 @@
-#!/bin/bash
-
-docker run -it -v "/Library/Fonts:/usr/local/share/fonts:ro" -v "$PWD:/data" -v "$HOME/Sources/panelizer/symbols:/symbols" -e PANELIZER_SYMBOLS="/symbols" panelizer "panelizer.$1" "${@:2}"

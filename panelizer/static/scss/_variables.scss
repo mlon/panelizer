@@ -1,0 +1,69 @@
+:root {
+  --gray-000: #f0f3f5;
+  --gray-100: #d1dae0;
+  --gray-200: #b2c1cc;
+  --gray-300: #94a8b8;
+  --gray-400: #7590a3;
+  --gray-500: #5c768a;
+  --gray-600: #475c6b;
+  --gray-700: #33424d;
+  --gray-800: #1f272e;
+  --gray-900: #0a0d0f;
+  --accent: hsl(40, 100%, 50%);
+
+  --red: #fa5252;
+  --pink: #e64980;
+  --grape: #be4bdb;
+  --purple: #7950f2;
+  --indigo: #4c6ef5;
+  --blue: #228be6;
+  --cyan: #15aabf;
+  --teal: #12b886;
+  --green: #40c057;
+  --yellow: #fab005;
+  --orange: #fd7e14;
+
+  --blue-300: #74c0fc;
+  --blue-400: #4dabf7;
+  --yellow-100: #fff3bf;
+
+  --heading-font: Jost;
+
+  --body-font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --body-font-size: 16px;
+  --body-line-height: 1.5;
+  --body-color: hsl(200, 5%, 15%);
+  --body-bg: #fff;
+
+  --link-color: var(--accent);
+
+  --heading-color: hsl(200, 5%, 15%);
+
+  --border-color: var(--gray-300);
+  --border-radius: .25rem;
+
+  --code-font: 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --code-color: var(--grape);
+  --code-bg: var(--gray-000);
+
+  --spacer: 1rem;
+  --spacer-2: calc(var(--spacer) * 1.5);
+  --spacer-3: calc(var(--spacer) * 3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: hsl(40, 100%, 60%);
+
+    --body-color: hsl(200, 5%, 75%);
+    --body-bg: hsl(200, 5%, 15%);
+
+    --heading-color: hsl(200, 5%, 98%);
+
+    --link-color: var(--accent);
+
+    --border-color: rgba(255, 255, 255, .15);
+
+    --code-bg: var(--gray-900);
+  }
+}

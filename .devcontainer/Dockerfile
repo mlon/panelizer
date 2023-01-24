@@ -14,4 +14,5 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     libpangocairo-1.0-0 \
     libvips42
 
+COPY fonts/Jost-600-Semi.otf /usr/local/share/fonts/
 RUN fc-cache -fv

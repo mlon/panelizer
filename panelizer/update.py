@@ -1,6 +1,5 @@
-import pathlib
+from io import BytesIO
 
-import typer
 from lxml import etree
 from lxml.etree import SubElement, _ElementTree
 
@@ -24,12 +23,9 @@ def update_symbols(svg: _ElementTree) -> None:
     add_symbols(defs)
 
 
-def main(filename: pathlib.Path) -> None:
-    svg = etree.parse(filename)
+def update(stream: BytesIO) -> BytesIO:
+    svg = etree.parse(stream)
+
     update_symbols(svg)
-    with open(filename, "wb") as f:
-        f.write(etree.tostring(svg, pretty_print=True))
 
-
-if __name__ == "__main__":
-    typer.run(main)
+    return BytesIO(etree.tostring(svg, pretty_print=True))

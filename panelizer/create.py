@@ -1,8 +1,8 @@
 import os
 import os.path
+from io import BytesIO
 from typing import NamedTuple
 
-import typer
 from lxml import etree
 from lxml.etree import Element, ElementTree, QName, SubElement, _Element
 
@@ -212,7 +212,7 @@ def add_name(parent: _Element, cx: float, cy: float, name: str) -> None:
             "alignment-baseline": "central",
             "text-anchor": "middle",
             "fill": "#fff",
-            "style": "font-weight:500;font-size:1.1mm;font-family:'Jost*';",
+            "style": "font-weight:500;font-size:1.1mm;font-family:'Jost*',Jost;",
             inkscape("label"): "Module Name",
         },
     ).text = name
@@ -245,10 +245,7 @@ def add_relief(parent: _Element, width: float, height: float) -> None:
 
 
 def add_symbols(parent: _Element) -> None:
-    symbol_dir = os.environ.get(
-        "PANELIZER_SYMBOLS",
-        os.path.join(os.path.dirname(__file__), "..", "symbols"),
-    )
+    symbol_dir = os.path.join(os.path.dirname(__file__), "..", "symbols")
 
     for symbol_file in os.listdir(symbol_dir):
         if not symbol_file.endswith(".svg"):
@@ -266,9 +263,12 @@ def add_symbols(parent: _Element) -> None:
                 symbol.append(element)
 
 
-def main(
-    filename: str, hp: float = typer.Option(...), name: str = "Untitled Module"
-) -> None:
+def add_font(parent: _Element) -> None:
+    style = SubElement(parent, "style", attrib={"type": "text/css"})
+    style.text = "@import url('https://fonts.googleapis.com/css?family=Jost:600');"
+
+
+def create(hp: float, name: str = "Untitled Module") -> BytesIO:
     height = 128.5
     width = HP_TO_MM[hp]
 
@@ -290,6 +290,7 @@ def main(
 
     defs = SubElement(root, "defs")
 
+    add_font(defs)
     add_symbols(defs)
 
     add_background(root, width, height)
@@ -321,9 +322,4 @@ def main(
     components = add_layer(root, "Components")
     add_mounting_holes(components, width, height)
 
-    with open(filename, "wb") as f:
-        f.write(etree.tostring(ElementTree(root), pretty_print=True))
-
-
-if __name__ == "__main__":
-    typer.run(main)
+    return BytesIO(etree.tostring(ElementTree(root), pretty_print=True))

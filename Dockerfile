@@ -1,5 +1,7 @@
 FROM python:3.10
 
+ENV PYTHONUNBUFFERED True
+
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
     build-essential \
@@ -13,17 +15,17 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     libpangocairo-1.0-0 \
     libvips42
 
+COPY fonts/Jost-600-Semi.otf /usr/local/share/fonts/
 RUN fc-cache -fv
 
-WORKDIR /workspace
+WORKDIR /app
 COPY requirements.txt .
 
-RUN pip install -r requirements.txt 
+RUN pip install --no-cache-dir -r requirements.txt 
 
-COPY symbols symbols
+COPY wsgi.py .
 COPY panelizer panelizer
-COPY pyproject.toml .
-RUN pip install -e .
+RUN pysassc panelizer/static/scss/style.scss panelizer/static/css/style.scss.css 
+COPY symbols symbols
 
-WORKDIR /data
-ENTRYPOINT ["python3", "-m"]
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 wsgi:app

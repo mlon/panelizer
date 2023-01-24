@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>panel | mlon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@300;700&family=Jost:wght@500;600&display=swap"
+        rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.scss.css') }}" rel="stylesheet" type="text/css">
+    <link rel="icon" href="{{ url_for('static', filename='favicon-light.png') }}"
+        media="(prefers-color-scheme:no-preference)">
+    <link rel="icon" href="{{ url_for('static', filename='favicon-dark.png') }}" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="{{ url_for('static', filename='favicon-light.png') }}" media="(prefers-color-scheme: light)">
+    <style>
+        form {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media only screen and (max-width: 720px) {
+            form {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="https://mlon.com/" title="Home">
+                <svg width="80px" height="80px" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path
+                        d="M138.000361,79.4223943 L152.142412,93.5646796 C119.399014,126.160798 99.1326095,171.279799 99.1326095,221.132273 C99.1326095,320.543528 179.721354,401.132273 279.132609,401.132273 C328.985588,401.132273 374.104998,380.865458 406.701192,348.121476 L420.843478,362.263526 C384.627958,398.626851 334.508495,421.132273 279.132609,421.132273 C168.675659,421.132273 79.1326095,331.589223 79.1326095,221.132273 C79.1326095,165.756892 101.637621,115.637838 138.000361,79.4223943 Z M166.787013,108.209164 L230.92471,172.346896 C218.087138,185.036485 210.132609,202.655439 210.132609,222.132273 C210.132609,260.792205 241.472677,292.132273 280.132609,292.132273 C299.609443,292.132273 317.228397,284.177744 329.917986,271.340172 L393.056165,334.477416 C364.041901,363.896759 323.716822,382.132273 279.132609,382.132273 C190.767049,382.132273 119.132609,310.497833 119.132609,222.132273 C119.132609,177.54829 137.367935,137.223395 166.787013,108.209164 Z"
+                        id="logo" fill="currentColor"></path>
+
+                </svg>
+            </a>
+        </h1>
+    </header>
+
+    <main>
+        <h1>Panel Tools</h1>
+        <p>
+            These are a collection of tools I have been using to easily design and manufacture Eurorack panels. Drawing
+            inspiration from tools such as <a href="https://github.com/badgeek/svg2shenzhen">svg2shenzen</a> and
+            <a href="https://github.com/wntrblm/Gingerbread.py">gingerbread.py</a>, I chose to store panels as SVG files
+            and convert them to KiCad PCBs for fabrication. The way these work is that they map specific SVG layers to
+            different layers of the PCB, giving you fine control on what goes on the copper layer, soldermask, etc.
+        </p>
+        <p>
+            The downside of such tools is that they are very open ended in that they let you design anything but when
+            designing Eurorack panels you generally work with a limited set of predefined components, so I ended up
+            cobbling together my SVG to KiCad converter that enables me to <emph>compose</emph> different components
+            together. This, coupled with Inkscape support for <emph>symbols</emph>, enables me to put together a library
+            of commonly used jacks, pots, switches, etc. and then design a panel in an easy drag &amp; drop manner
+            (without having had to write much custom software).
+        </p>
+        <p>
+            This page is available online for my own convenience, it is unlikely you'll find much value from it
+            given that it's very specifically tailored to <span class="mlon">mlon</span>'s design language, but
+            hopefully you can draw inspiration from the <a href="https://github.com/mlon/panelizer">source</a>.
+        </p>
+
+        <h2>Tools</h2>
+        <h3>Create</h3>
+        <p>
+            Generates a blank panel template with a given size and name. This template contains the latest
+            version of the symbol library, as well as the <span class="mlon">mlon</span> logo and the module's
+            name.
+        </p>
+
+        <form action="/create" method="post">
+            <span>
+                <input type="text" id="name" name="name" placeholder="Module Name">
+                <select id="hp" name="hp">
+                    {% for hp_size in hp_sizes %}
+                    <option value="{{hp_size}}">{{hp_size}} hp</option>
+                    {% endfor %}
+                </select>
+            </span>
+            <input type="submit" value="Create">
+        </form>
+
+        <h3>Patch</h3>
+        <p>Updates a panel file to use the latest symbol library.</p>
+
+        <form action="/update" method="post" enctype="multipart/form-data">
+            <label for="file-update" data-filename="no file selected">
+                Choose SVG File
+            </label>
+            <input type="file" id="file-update" name="file" accept=".svg,image/svg+xml">
+            <input type="submit" value="Patch">
+        </form>
+
+        <h3>Convert</h3>
+        <p>Creates a KiCad PCB from an SVG panel.</p>
+        <form action="/convert" method="post" enctype="multipart/form-data">
+            <label for="file-convert" data-filename="no file selected">
+                Choose SVG File
+            </label>
+            <input type="file" id="file-convert" name="file" accept=".svg,image/svg+xml">
+            <input type="submit" value="Convert">
+        </form>
+    </main>
+
+    <footer>
+        &copy; mlon 2023. All rights reserved.
+    </footer>
+
+
+</body>
+<script lang="text/javascript">
+    document.querySelectorAll("input[type=file]").forEach(function (el) {
+        el.addEventListener("change", function () {
+            this.labels[0].setAttribute('data-filename', this.files[0].name);
+        })
+    });
+</script>
+
+</html>
