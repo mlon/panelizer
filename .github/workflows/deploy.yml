@@ -8,13 +8,18 @@ jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    
     steps:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Anthenticate
+    - name: Authenticate
       id: 'auth'
-      uses: 'google-github-actions/auth@v1'
+      uses: "google-github-actions/auth@v0"
       with:
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
